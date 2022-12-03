@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.myStyle {
+  background-image: 
+  url('../public/fondo2.webp');
+  background-size: "all";
+};
