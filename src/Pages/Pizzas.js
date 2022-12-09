@@ -24,6 +24,12 @@ const Pizzas = () => {
                         <Card name='HAWAIANA' description='Deliciosa pizza estilo Hawaii con pollo, jamon y piña' image='./Pizzas/HAWAIANA.jpeg' price='25000'/>
                     </Col>
                 </Row>
+                <br></br>
+                <Row>
+                    <Col>
+                        <Card name='VEGAN QUEEN' description='Pizza estilo vegano' image='./Pizzas/VEGAN_QUEEN.jpg' price='25000'/>
+                    </Col>
+                </Row>
             </div>
 
                 </Container>

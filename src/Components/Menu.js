@@ -1,22 +1,15 @@
-import {Nav, Navbar, Container} from 'react-bootstrap';
+
+import {AppBar, Toolbar, Container,IconButton, Typography, Button} from '@material-ui/core';
+import {ReactComponent as Logo} from '../logo.jpg';
 
 const Menu = () => {
     
     return (
-        <div>
-        <Navbar bg="danger" variant="danger">
-            <Container>
-            <Navbar.Brand href="#home">Pizza Panucci</Navbar.Brand>
-            <Nav className="me-auto">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/catalogo_pizzas">Catalogo de Pizzas</Nav.Link>
-                <Nav.Link href="/bebidas">Bebidas</Nav.Link>
-                <Nav.Link href="/postres">Postres</Nav.Link>
-
-            </Nav>
-            </Container>
-        </Navbar>
-        </div>
+        <AppBar position='static' style={{background: 'danger'}}>
+            <Toolbar disabbleGutters>
+                <Logo sx={{display: {xs: 'none', md: 'flex'}}} />
+            </Toolbar>
+        </AppBar>
     );
     
 }
