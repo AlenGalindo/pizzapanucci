@@ -1,40 +1,82 @@
+import { Box, Container, Grid } from "@mui/material";
+import pizzas from "../data/pizzas";
+import PizzaCard from "../components/PizzaCard";
+import bebidas from "../data/bebidas";
+import BebidaCard from "../components/BebidaCard";
+import personalizada from "../data/personalizada";
+import PersonalizadaCard from "../components/PersonalizadaCard";
 
-import Card from '../Components/Card';
-import {Row, Col, Container} from 'react-bootstrap';
-import '../App.css';
+const Pizzas = ({addToCart}) => {
+    const renderPizzas = pizzas.map((e, index) => {
+        return (
+            <PizzaCard
+                key={index}
+                pizza={e}
+                addToCart={addToCart}
+            />
+        )
+    });
 
-const Pizzas = () => {
+    const renderBebidas = bebidas.map((e, index) => {
+        return (
+            <BebidaCard
+                key={index}
+                bebida={e}
+                addToCart={addToCart}
+            />
+        )
+    });
+
+    const renderPersonalizada = personalizada.map((e, index) => {
+        return (
+            <PersonalizadaCard
+                key={index}
+                personalizada={e}
+                addToCart={addToCart}
+            />
+        )
+    });
+
 
     return (
-        <div >
-            <h1 style={{textAlign: 'center', backgroundColor: "danger", opacity: "0.3"}} >Lista de Pizzas</h1>
-                <Container style= {{justify: 'center', marginTop: '30px'}}>
-                <div>
-                <Row>
-                    <Col>
-                        <Card name='BBQ CHICKEN' description='Rica pizza estilo BBQ con pollo y cebolla' image='./Pizzas/BBQ_CHICKEN.jpg' price='25000'/>
-                    </Col>
-                    <Col>
-                        <Card name='AMERICANA' description='Exquisita pizza estilo americano con jamon salchicha y pepperoni' image='./Pizzas/AMERICANA.jpeg' price='25000'/>
-                    </Col>
-                    <Col >
-                        <Card name='CAMPESINA' description='Pizza estilo campesino con pollo, pimiento y champiñones' image='./Pizzas/CAMPESINA.jpeg' price='25000'/>
-                    </Col>
-                    <Col >
-                        <Card name='HAWAIANA' description='Deliciosa pizza estilo Hawaii con pollo, jamon y piña' image='./Pizzas/HAWAIANA.jpeg' price='25000'/>
-                    </Col>
-                </Row>
-                <br></br>
-                <Row>
-                    <Col>
-                        <Card name='VEGAN QUEEN' description='Pizza estilo vegano' image='./Pizzas/VEGAN_QUEEN.jpg' price='25000'/>
-                    </Col>
-                </Row>
-            </div>
+        <Box className="mt-4">
+            <Container maxWidth="lg">
+                <h4 style={{marginLeft: '25px', textAlign:"center" }}>Arma tu propia pizza</h4>
+                <Grid container justifyContent={"center"} sx={{margin: '20px 4px 10px 4px'}}
+                >
+                    <Grid container className="mt-4">
+                        {renderPersonalizada}
+                    </Grid>
+                </Grid>
+                
+                <h3 style={{marginLeft: '25px'}}>Catalogo Pizzas</h3>
+                <Grid
+                    container
+                    justifyContent={"center"}
+                    sx={{margin: '20px 4px 10px 4px'}}
+                >
+                        <Grid container className="mt-4">
+                            {renderPizzas}
+                        </Grid>
+                </Grid>
 
-                </Container>
-        </div>
-    );
+                <h3 style={{marginLeft: '25px'}}>Catalogo de bebestibles</h3>
+                <Grid
+                    container
+                    justifyContent={"center"}
+                    sx={{margin: '20px 4px 10px 4px'}}
+                >
+
+                        <Grid container className="mt-4">
+                            {renderBebidas}
+                        </Grid>
+                </Grid>
+            </Container>
+        </Box>
+
+
+
+    )
 }
 
 export default Pizzas;

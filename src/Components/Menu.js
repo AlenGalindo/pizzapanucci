@@ -1,8 +1,8 @@
 
 import {AppBar, Toolbar, Container,IconButton, Typography, Button} from '@material-ui/core';
 import {ReactComponent as Logo} from '../logo.jpg';
-
-const Menu = () => {
+import {useState} from 'react';
+const Menu = ({pizza, bebida, addToCart}) => {
     
     return (
         <AppBar position='static' style={{background: 'danger'}}>

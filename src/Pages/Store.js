@@ -1,13 +1,13 @@
 import { Box, Container, Grid } from "@mui/material";
-import bebidas from "../data/bebidas";
-import BebidaCard from "../components/BebidaCard";
+import EmpanadaCard from "../components/EmpanadaCard";
+import empanadas from "../data/empanadas";
 
-const Bebidas = ({addToCart}) => {
-    const renderBebidas = bebidas.map((e, index) => {
+const Store = ({addToCart}) => {
+    const renderEmpanadas = empanadas.map((e, index) => {
         return (
-            <BebidaCard
+            <EmpanadaCard
                 key={index}
-                bebida={e}
+                empanada={e}
                 addToCart={addToCart}
             />
         )
@@ -16,14 +16,14 @@ const Bebidas = ({addToCart}) => {
     return (
         <Box className="mt-4">
             <Container maxWidth="lg">
-                <h3 style={{marginLeft: '25px'}}>Catalogo de bebestibles</h3>
+                <h3 style={{marginLeft: '25px'}}>Catalogo Empanadas</h3>
                 <Grid
                     container
                     justifyContent={"center"}
                     sx={{margin: '20px 4px 10px 4px'}}
                 >
                         <Grid container className="mt-4">
-                            {renderBebidas}
+                            {renderEmpanadas}
                         </Grid>
                 </Grid>
             </Container>
@@ -32,4 +32,4 @@ const Bebidas = ({addToCart}) => {
     )
 }
 
-export default Bebidas;
+export default Store;

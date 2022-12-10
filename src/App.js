@@ -1,20 +1,58 @@
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
-import {Container} from 'react-bootstrap';
-import Layout from './Layout';
-import Pizzas from './Pages/Pizzas';
-import Bebidas from './Pages/Bebidas';
-import Postres from './Pages/Postres';
+import { Routes, Route } from "react-router-dom";
+import Layout from './components/Layout';
+import { Container } from 'react-bootstrap';
+import Index from './pages/Index';
+import Store from './pages/Store';
+import { useState } from 'react';
+import Checkout from './pages/Checkout';
+import Pizzas from './pages/Pizzas';
+import Bebidas from './pages/Bebidas';
+import Cart from './components/Cart';
+import back from './data/images/AMERICANA.jpeg';
 
-const App = () => {
+function App() {
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
+  const openCart = () => {
+      setShowCart(true);
+  };
+
+  const closeCart = () => {
+      setShowCart(false);
+  };
+
+  const addToCart = (order) => {
+    let cartIndex = cart.findIndex(c => (
+      c.id === order.id
+      && c.size === order.size
+    ));
+    let item = cart[cartIndex];
+
+    if (item) {
+      item.qty += order.qty;
+      item.price += order.price;
+      setCart(cart);
+    } else {
+      setCart([...cart, order]);
+    }
+  };
+
   return (
-    <Layout className="myStyle">
-      <Container>
-        <Routes>
-          <Route path="/"  exact/>
-          <Route path="/catalogo_pizzas" element={<Pizzas/>} exact/>
-          <Route path="/bebidas" element={<Bebidas/>} exact/>
-          <Route path="/postres" element={<Postres/>} exact/>
+    <Layout
+      cart={cart}
+      showCart={showCart}
+      openCart={openCart}
+      closeCart={closeCart}
+    >
+      <Container style={{backgroundImage:'url${back}'}}>
+        <Routes >
+          <Route path='/' element={<Index/>} exact/>
+          <Route path='/store' element={<Store addToCart={addToCart}/>} exact />
+          <Route path='/checkout' element={<Checkout />} exact />
+          <Route path='/pizzas' element={<Pizzas addToCart={addToCart}/>} exact />
+          <Route path='/bebidas' element={<Bebidas addToCart={addToCart}/>} exact />
         </Routes>
       </Container>
     </Layout>
