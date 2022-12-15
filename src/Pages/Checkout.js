@@ -45,7 +45,7 @@ const Checkout = ({car }) => {
 
     const completarPagoAlert = ({email}) => {
         
-        alert('Pago completado\n' + 'Informacion de pedido enviado a su correo \n Gracias por su compra! :D')
+        alert('Pedido completado\n' + 'Informacion de pedido enviado a su correo \n Gracias por preferirnos! :D')
         console.log('Pago completado')
 
     };
