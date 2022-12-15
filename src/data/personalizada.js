@@ -17,7 +17,7 @@ const personalizada = [
     'quesosCosts': [500, 800, 200, 500, 2000],
     'carne': ['pepperoni', 'salchicha', 'jamon'],
     'carneCosts': [500, 700, 500],
-    'extras': ['huevo', 'tocino', 'alcaparras', 'aceitunas', 'pimenton', 'oregano', 'albahaca', 'perejil', 'ajo', 'cebolla', 'pimiento', 'tomate', 'champiñones', 'pepperoni', 'salchicha', 'jamon', 'piña', 'pepperoni', 'salchicha', 'jamon', 'piña'],   
+    'extras': ['nada','huevo', 'tocino', 'alcaparras', 'aceitunas', 'pimenton', 'oregano', 'albahaca', 'perejil', 'ajo', 'cebolla', 'pimiento', 'tomate', 'champiñones', 'pepperoni', 'salchicha', 'jamon', 'piña', 'pepperoni', 'salchicha', 'jamon', 'piña'],   
     'extrasCosts': [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 700, 500, 500, 500, 500, 500, 500, 500]}
 ]
 

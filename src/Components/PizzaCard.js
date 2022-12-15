@@ -56,6 +56,10 @@ export default function PizzaCard({pizza, addToCart}) {
         setOpenDialog(false);
     };
 
+    const agregadoAlert = () => {
+        alert("Agregado al carrito");
+    };
+
     // Añadir al carrito
     const generateOrder = () => {
         let order = {
@@ -191,7 +195,7 @@ export default function PizzaCard({pizza, addToCart}) {
             </DialogContent>
             <DialogActions>
             <Button onClick={handleCloseMod}>Cancelar</Button>
-            <Button onClick={generateOrder} endIcon={<ShoppingCartIcon />}>Añadir al carrito</Button>
+            <Button onClick={generateOrder,agregadoAlert} endIcon={<ShoppingCartIcon />}>Añadir al carrito</Button>
             </DialogActions>
         </Dialog>
 

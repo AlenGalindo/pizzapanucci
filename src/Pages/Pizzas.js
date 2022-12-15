@@ -5,6 +5,8 @@ import bebidas from "../data/bebidas";
 import BebidaCard from "../components/BebidaCard";
 import personalizada from "../data/personalizada";
 import PersonalizadaCard from "../components/PersonalizadaCard";
+import salsas from "../data/salsas";
+import SalsaCard from "../components/SalsaCard";
 
 const Pizzas = ({addToCart}) => {
     const renderPizzas = pizzas.map((e, index) => {
@@ -32,6 +34,16 @@ const Pizzas = ({addToCart}) => {
             <PersonalizadaCard
                 key={index}
                 personalizada={e}
+                addToCart={addToCart}
+            />
+        )
+    });
+
+    const renderSalsas = salsas.map((e, index) => {
+        return (
+            <SalsaCard
+                key={index}
+                salsa={e}   
                 addToCart={addToCart}
             />
         )
@@ -71,7 +83,22 @@ const Pizzas = ({addToCart}) => {
                             {renderBebidas}
                         </Grid>
                 </Grid>
+
+                <h3 style={{marginLeft: '25px'}}>Catalogo de salsas</h3>
+                <Grid
+                    container
+                    justifyContent={"center"}
+                    sx={{margin: '20px 4px 10px 4px'}}
+                >
+
+                        <Grid container className="mt-4">
+                            {renderSalsas}
+                        </Grid>
+                </Grid>
+            
             </Container>
+
+            
         </Box>
 
 

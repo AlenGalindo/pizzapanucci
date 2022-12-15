@@ -1,5 +1,5 @@
 const pages = [
-    {href: '/', text:'Inicio'},
+    //{href: '/', text:'Inicio'},
     {href: '/pizzas', text: 'Menu de productos'},
     //{href:'/store', text: 'Catalogo Empanadas'},
     //{href: '/bebidas', text: 'Bebidas'},

@@ -34,6 +34,7 @@ function App() {
       item.qty += order.qty;
       item.price += order.price;
       setCart(cart);
+      alert("Agregado al carrito");
     } else {
       setCart([...cart, order]);
     }
@@ -48,11 +49,8 @@ function App() {
     >
       <Container style={{backgroundImage:'url${back}'}}>
         <Routes >
-          <Route path='/' element={<Index/>} exact/>
-          <Route path='/store' element={<Store addToCart={addToCart}/>} exact />
           <Route path='/checkout' element={<Checkout />} exact />
           <Route path='/pizzas' element={<Pizzas addToCart={addToCart}/>} exact />
-          <Route path='/bebidas' element={<Bebidas addToCart={addToCart}/>} exact />
         </Routes>
       </Container>
     </Layout>

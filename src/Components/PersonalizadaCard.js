@@ -20,9 +20,18 @@ export default function PersonalizadaCard({personalizada, addToCart}) {
     const [carne, setCarne] = useState(personalizada.carne[0]);
     const [queso, setQueso] = useState(personalizada.quesos[0]);
     const [verdura, setVerdura] = useState(personalizada.verduras[0]);
+    const [extra, setExtra] = useState(personalizada.extras[0]);
     
 
 
+
+    const handleExtra = (e) => {
+        let newExtra = e.target.value;
+        let extraIndex = personalizada.extras.indexOf(newExtra);
+        setExtra(newExtra);
+        let newPrice = personalizada.extrasCosts[extraIndex];
+        handlePriceAdd(newPrice);
+    };
 
     const handleMasa = (e) => {
         setMasa(e.target.name);
@@ -241,6 +250,29 @@ export default function PersonalizadaCard({personalizada, addToCart}) {
                                 label={e}
                                 checked={verdura === e ? true : false}
                                 onChange={handleVerdura}
+                            />
+                        )
+                    })}
+                </RadioGroup>
+
+                <DialogContentText className='mt-4'>
+                    Extras
+                </DialogContentText>
+                <RadioGroup
+                    row
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                >
+                    {personalizada.extras.map((e, index) => {
+                        return (
+                            <FormControlLabel
+                                key={index}
+                                value={e}
+                                // name={e}
+                                control={<Radio />}
+                                label={e}
+                                checked={extra === e ? true : false}
+                                onChange={handleExtra}
                             />
                         )
                     })}
