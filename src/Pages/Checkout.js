@@ -1,6 +1,6 @@
-import { Avatar, Box, Button,Checkbox, FormControlLabel, FormGroup, Grid, Paper, Radio, TextField, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { FormControl } from "react-bootstrap";
+import { Avatar, Box, Button,Checkbox, FormControlLabel, FormGroup, Grid, Paper, Radio, Select, TextField, Typography } from "@mui/material";
+import { useEffect, useState} from "react";
+import { FormControl , Form} from "react-bootstrap";
 
 
 const Checkout = ({car }) => {
@@ -101,7 +101,40 @@ const Checkout = ({car }) => {
         </>
     );
 
+    const direccion = () => {
+        return (
+            <>
+            <Grid container className="mt-3">
+            <Grid item xs={12} sm={12}>
+                <TextField
+                    id="standard-helperText"
+                    label="Dirección"
+                    variant="outlined"
+                    fullWidth
+                    size="small"
+                />
+            </Grid>
+        </Grid>
+        </>
+        )
+    }
 
+    const retiroEnlocalRender = () => {
+        return (
+            <>
+            <Form>
+                <Form.Label>Tiendas de Pizza Panucci</Form.Label>
+                <Form.Select className="mb-3" aria-label="Default select example">
+                    <option>Selecciona una de nuestros locales</option>
+                    <option value="1">Local 1</option>
+                    <option value="2">Local 2</option>
+                    <option value="3">Local 3</option>
+                </Form.Select>
+            </Form>
+            </>
+        )
+    }
+                
 
     const personalInformationRender = (
         <>
@@ -135,17 +168,9 @@ const Checkout = ({car }) => {
                 />
             </Grid>
         </Grid>
-        <Grid container className="mt-3">
-            <Grid item xs={12} sm={12}>
-                <TextField
-                    id="standard-helperText"
-                    label="Dirección"
-                    variant="outlined"
-                    fullWidth
-                    size="small"
-                />
-            </Grid>
-        </Grid>
+        {retiro === 'Envio a domicilio' ? direccion() : null}
+
+        {retiro === 'Retiro en local' ? retiroEnlocalRender() : null}
         </>
     );
 
